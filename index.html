@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Allan Mumba — Portfolio</title>
+  <meta name="description" content="Allan Mumba — Creative Technologist, Animator, Web Developer & IT Trainer based in Kilifi, Kenya." />
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-p1Cm0OqC+Jr5V0s4LQ1U5W2q2h9d8rjYb0V5Qm1Xv9H4CjQnN2q1qjHk6n4C9JHk2t7jDkR4hXq8d5O8Lz8G3A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root{
+      --navy:#0a2342; 
+      --cream:#f8f5f0; 
+      --accent:#2bb673; 
+      --ink:#1b1f24;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --shadow:0 10px 20px rgba(10,35,66,.08);
+      --radius:20px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--ink); background:var(--cream);
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50; background:rgba(248,245,240,.7); backdrop-filter: blur(10px); border-bottom:1px solid rgba(10,35,66,.06);
+    }
+    .nav{
+      max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:14px 20px;
+    }
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.5px;}
+    .brand .logo{width:38px; height:38px; border-radius:50%; background:linear-gradient(145deg,var(--navy),#143a6b); color:#fff; display:grid; place-items:center; box-shadow: var(--shadow)}
+    .brand span{color:var(--navy)}
+    .navlinks{display:flex; gap:22px; align-items:center}
+    .navlinks a{padding:8px 12px; border-radius:12px; font-weight:500; color:var(--navy)}
+    .navlinks a:hover{background:#ffffffc2}
+    .menu-btn{display:none; background:#fff; border:1px solid rgba(10,35,66,.1); padding:8px 12px; border-radius:12px}
+
+    /* Hero */
+    .hero{
+      max-width:1200px; margin:0 auto; padding:60px 20px 40px; display:grid; grid-template-columns:1.2fr .8fr; gap:30px; align-items:center;
+    }
+    .hero h1{font-size:clamp(32px,6vw,56px); line-height:1.05; margin:0 0 12px; color:var(--navy)}
+    .tag{display:inline-block; background:var(--navy); color:#fff; padding:8px 14px; border-radius:999px; font-size:14px; margin-bottom:14px}
+    .hero p{color:var(--muted); font-size:18px;}
+    .cta{display:flex; gap:12px; margin-top:20px; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:14px; border:none; cursor:pointer; font-weight:600;}
+    .btn-primary{background:var(--accent); color:#fff}
+    .btn-outline{background:#fff; color:var(--navy); border:1px solid rgba(10,35,66,.12)}
+    .hero-card{background:var(--card); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
+    .hero-card .grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px}
+    .stat{background:linear-gradient(145deg,#fff,#f3f6fb); border:1px solid rgba(10,35,66,.06); border-radius:16px; padding:14px}
+    .stat b{display:block; font-size:22px; color:var(--navy)}
+
+    /* Sections */
+    section{max-width:1200px; margin:0 auto; padding:60px 20px}
+    .section-title{font-size:28px; color:var(--navy); margin:0 0 16px}
+    .section-sub{color:var(--muted); margin:0 0 24px}
+
+    /* About */
+    .about{display:grid; grid-template-columns:.9fr 1.1fr; gap:28px}
+    .about .card{background:var(--card); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
+    .about .photo{aspect-ratio:1/1; border-radius:18px; background:linear-gradient(145deg,#143a6b,#0a2342); display:grid; place-items:center; color:#fff; font-size:48px; font-weight:800}
+    .contact-list{display:grid; gap:10px; margin-top:12px}
+    .contact-item{display:flex; align-items:center; gap:10px; padding:10px 12px; background:#fff; border:1px solid rgba(10,35,66,.08); border-radius:12px}
+
+    /* Skills */
+    .skills-grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px}
+    .skill{background:#fff; border:1px solid rgba(10,35,66,.08); border-radius:16px; padding:16px}
+    .skill h4{margin:0 0 6px; color:var(--navy)}
+    .chips{display:flex; flex-wrap:wrap; gap:8px}
+    .chip{background:var(--cream); border:1px solid rgba(10,35,66,.08); border-radius:999px; padding:6px 10px; font-size:12px}
+
+    /* Teaching */
+    .cards{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px}
+    .card{background:#fff; border:1px solid rgba(10,35,66,.08); border-radius:16px; padding:18px; box-shadow:var(--shadow)}
+    .card h4{margin:6px 0 8px; color:var(--navy)}
+    .card p{color:var(--muted)}
+
+    /* Portfolio */
+    .grid-portfolio{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px}
+    .tile{background:#fff; border:1px solid rgba(10,35,66,.1); border-radius:16px; overflow:hidden; display:flex; flex-direction:column}
+    .thumb{aspect-ratio:16/10; background:linear-gradient(145deg,#dee7f3,#ffffff)}
+    .tile .meta{padding:14px}
+    .tile .meta h5{margin:0 0 6px; color:var(--navy)}
+
+    /* Contact */
+    .contact-wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:20px}
+    form{display:grid; gap:12px}
+    input, textarea{width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(10,35,66,.12); background:#fff; font:inherit}
+    textarea{min-height:140px}
+    .map{background:#fff; border:1px solid rgba(10,35,66,.12); border-radius:16px; overflow:hidden}
+    .map iframe{width:100%; height:100%; min-height:320px; border:0}
+
+    /* Footer */
+    footer{padding:30px 20px; text-align:center; color:var(--muted)}
+
+    /* Utilities */
+    .hide{display:none}
+    .row{display:flex; gap:12px; flex-wrap:wrap}
+    .pill{padding:6px 10px; border-radius:999px; border:1px solid rgba(10,35,66,.12)}
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .hero{grid-template-columns:1fr;}
+      .about{grid-template-columns:1fr}
+      .skills-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .grid-portfolio{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .contact-wrap{grid-template-columns:1fr}
+    }
+    @media (max-width:720px){
+      .navlinks{display:none}
+      .menu-btn{display:inline-flex}
+      .skills-grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      .grid-portfolio{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="nav">
+      <a href="#home" class="brand">
+        <div class="logo">AM</div>
+        <span>Allan Mumba</span>
+      </a>
+      <div class="navlinks" id="navlinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+        <a class="pill" href="assets/Allan_Mumba_CV.pdf" download>Download CV</a>
+      </div>
+      <button class="menu-btn" id="menuBtn"><i class="fa fa-bars"></i></button>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div>
+      <span class="tag"><i class="fa-solid fa-location-dot"></i> Kilifi, Kenya</span>
+      <h1>Creative Technologist<br/>Animator • Web Developer • IT Trainer</h1>
+      <p>I design and build digital experiences, from animated stories and AutoCAD models to modern websites and hands‑on IT training. I help people and brands communicate clearly through technology.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#contact"><i class="fa-regular fa-paper-plane"></i> Contact Me</a>
+        <a class="btn btn-outline" href="assets/Allan_Mumba_CV.pdf" download><i class="fa-regular fa-file-lines"></i> Download CV</a>
+        <a class="btn btn-outline" href="https://wa.me/254769113515?text=Hi%20Allan%2C%20I%27d%20like%20to%20book%20a%20session" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="grid">
+        <div class="stat"><b>6+</b> Core domains<br/><small class="muted">Animation, Web, IT, AutoCAD, Inventory, Design</small></div>
+        <div class="stat"><b>1:1</b> Training<br/><small>From beginner to advanced</small></div>
+        <div class="stat"><b>Hands‑on</b> Labs<br/><small>Projects you can show</small></div>
+        <div class="stat"><b>Support</b><br/><small>IT maintenance & troubleshooting</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <p class="section-sub">Hi, I’m Allan Mumba, a multi‑disciplinary creator based in Kilifi. I blend <b>animation</b>, <b>AutoCAD solid modeling</b>, <b>inventory modeling</b>, <b>web development</b>, and <b>IT support & maintenance</b> to deliver practical, beautiful solutions. I also teach students and teams how to use modern tools effectively.</p>
+    <div class="about">
+      <div class="card">
+        <div class="photo">AM</div>
+        <div class="contact-list">
+          <div class="contact-item"><i class="fa-solid fa-phone"></i> <a href="tel:+254769113515">+254 769 113 515</a></div>
+          <div class="contact-item"><i class="fa-solid fa-envelope"></i> <a href="mailto:mullan767@gmail.com">mullan767@gmail.com</a></div>
+          <div class="contact-item"><i class="fa-brands fa-whatsapp"></i> <a target="_blank" rel="noopener" href="https://wa.me/254769113515">Chat on WhatsApp</a></div>
+          <div class="contact-item"><i class="fa-solid fa-location-dot"></i> Kilifi, Kenya</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin:0 0 10px;color:var(--navy)">What I Do</h3>
+        <ul>
+          <li>Design animations and 3D scenes (Blender) for education and marketing.</li>
+          <li>Draft and model structures/products with AutoCAD (solid modeling).</li>
+          <li>Build clean, responsive websites and dashboards.</li>
+          <li>Set up, support, and maintain IT systems for small businesses.</li>
+          <li>Create professional designs and social media assets in Canva.</li>
+          <li>Develop practical inventory modeling templates and workflows.</li>
+        </ul>
+        <div class="row" style="margin-top:10px">
+          <span class="pill">Available for freelance</span>
+          <span class="pill">Open to training gigs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2 class="section-title">Skills</h2>
+    <p class="section-sub">A blend of technical and creative capabilities.</p>
+    <div class="skills-grid">
+      <div class="skill">
+        <h4>Web Development</h4>
+        <div class="chips">
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">PHP</span>
+          <span class="chip">Responsive Design</span>
+        </div>
+      </div>
+      <div class="skill">
+        <h4>Animation & 3D</h4>
+        <div class="chips">
+          <span class="chip">Blender</span>
+          <span class="chip">Storyboarding</span>
+          <span class="chip">Rendering</span>
+        </div>
+      </div>
+      <div class="skill">
+        <h4>AutoCAD Solid Modeling</h4>
+        <div class="chips">
+          <span class="chip">Architecture</span>
+          <span class="chip">Drafting</span>
+          <span class="chip">3D Modeling</span>
+        </div>
+      </div>
+      <div class="skill">
+        <h4>Inventory Modeling</h4>
+        <div class="chips">
+          <span class="chip">Process Design</span>
+          <span class="chip">Templates</span>
+          <span class="chip">Data Sheets</span>
+        </div>
+      </div>
+      <div class="skill">
+        <h4>Canva Design</h4>
+        <div class="chips">
+          <span class="chip">Brand Kits</span>
+          <span class="chip">Social Posts</span>
+          <span class="chip">Posters</span>
+        </div>
+      </div>
+      <div class="skill">
+        <h4>IT Support & Maintenance</h4>
+        <div class="chips">
+          <span class="chip">Setup & Troubleshooting</span>
+          <span class="chip">Networking Basics</span>
+          <span class="chip">Security Hygiene</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaching & Training -->
+  <section id="teaching">
+    <h2 class="section-title">Teaching & Training</h2>
+    <p class="section-sub">I run practical sessions tailored for students, teams, and small businesses.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="pill">Beginner → Advanced</div>
+        <h4>MS Office Package</h4>
+        <p>Master Word, Excel, and PowerPoint with real‑world exercises and templates you can reuse.</p>
+        <a class="btn btn-outline" target="_blank" rel="noopener" href="https://wa.me/254769113515?text=I%20want%20to%20learn%20MS%20Office"><i class="fa-brands fa-whatsapp"></i> Book Session</a>
+      </div>
+      <div class="card">
+        <div class="pill">Project‑Based</div>
+        <h4>Blender for Animation</h4>
+        <p>From modeling and rigging to lighting and rendering. Create a short animated scene as your capstone.</p>
+        <a class="btn btn-outline" target="_blank" rel="noopener" href="https://wa.me/254769113515?text=I%20want%20to%20learn%20Blender"><i class="fa-brands fa-whatsapp"></i> Book Session</a>
+      </div>
+      <div class="card">
+        <div class="pill">For Architects</div>
+        <h4>AutoCAD for Architects</h4>
+        <p>Drafting fundamentals, layers, blocks, and 3D workflows for clean architectural deliverables.</p>
+        <a class="btn btn-outline" target="_blank" rel="noopener" href="https://wa.me/254769113515?text=I%20want%20to%20learn%20AutoCAD"><i class="fa-brands fa-whatsapp"></i> Book Session</a>
+      </div>
+      <div class="card">
+        <div class="pill">Web Basics</div>
+        <h4>HTML, CSS & JavaScript</h4>
+        <p>Learn to build responsive websites from scratch and deploy them. Includes portfolio starter kit.</p>
+        <a class="btn btn-outline" target="_blank" rel="noopener" href="https://wa.me/254769113515?text=I%20want%20to%20learn%20Web%20Development"><i class="fa-brands fa-whatsapp"></i> Book Session</a>
+      </div>
+      <div class="card">
+        <div class="pill">Foundations</div>
+        <h4>IT Literacy & Support</h4>
+        <p>PC setup, maintenance, backups, and troubleshooting—best practices for individuals & SMEs.</p>
+        <a class="btn btn-outline" target="_blank" rel="noopener" href="https://wa.me/254769113515?text=I%20want%20IT%20Support%20Training"><i class="fa-brands fa-whatsapp"></i> Book Session</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio">
+    <h2 class="section-title">Portfolio</h2>
+    <p class="section-sub">A peek into my recent work. Replace these tiles with your own projects.</p>
+    <div class="grid-portfolio">
+      <article class="tile">
+        <div class="thumb"></div>
+        <div class="meta">
+          <h5>Product Animation Reel</h5>
+          <p class="muted">Blender • Short clips showcasing motion & lighting</p>
+          <a class="btn btn-outline" href="#" onclick="alert('Replace with your project link or video!')">View Project</a>
+        </div>
+      </article>
+      <article class="tile">
+        <div class="thumb"></div>
+        <div class="meta">
+          <h5>AutoCAD House Model</h5>
+          <p class="muted">AutoCAD • 3D solid modeling for a residential plan</p>
+          <a class="btn btn-outline" href="#" onclick="alert('Replace with your project link or PDF!')">View Project</a>
+        </div>
+      </article>
+      <article class="tile">
+        <div class="thumb"></div>
+        <div class="meta">
+          <h5>Business Inventory Template</h5>
+          <p class="muted">Excel • Inventory modeling with dashboards</p>
+          <a class="btn btn-outline" href="#" onclick="alert('Replace with your Google Drive or download link!')">View Project</a>
+        </div>
+      </article>
+      <article class="tile">
+        <div class="thumb"></div>
+        <div class="meta">
+          <h5>Datashare Kenya Website</h5>
+          <p class="muted">Web • Responsive landing page & admin portal</p>
+          <a class="btn btn-outline" href="#" onclick="alert('Replace with your live site or GitHub link!')">View Project</a>
+        </div>
+      </article>
+      <article class="tile">
+        <div class="thumb"></div>
+        <div class="meta">
+          <h5>Canva Social Pack</h5>
+          <p class="muted">Canva • 20 templates for a boutique</p>
+          <a class="btn btn-outline" href="#" onclick="alert('Replace with your Canva folder link!')">View Project</a>
+        </div>
+      </article>
+      <article class="tile">
+        <div class="thumb"></div>
+        <div class="meta">
+          <h5>IT Support Case Studies</h5>
+          <p class="muted">Troubleshooting • Setup & maintenance reports</p>
+          <a class="btn btn-outline" href="#" onclick="alert('Replace with a PDF case study!')">View Project</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <p class="section-sub">Have a project or want training? Let’s talk.</p>
+    <div class="contact-wrap">
+      <div class="card">
+        <form id="contactForm">
+          <input type="text" id="name" placeholder="Your name" required />
+          <input type="email" id="email" placeholder="Your email" required />
+          <textarea id="message" placeholder="Tell me a bit about your project or training needs" required></textarea>
+          <div class="row">
+            <button type="submit" class="btn btn-primary"><i class="fa-regular fa-paper-plane"></i> Send</button>
+            <a class="btn btn-outline" href="mailto:mullan767@gmail.com"><i class="fa-regular fa-envelope"></i> Email Me</a>
+            <a class="btn btn-outline" target="_blank" rel="noopener" href="https://wa.me/254769113515?text=Hi%20Allan%2C%20I%27m%20interested%20in%20your%20services"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+          </div>
+        </form>
+      </div>
+      <div class="map">
+        <iframe loading="lazy" allowfullscreen
+          src="https://www.google.com/maps?q=Kilifi%2C%20Kenya&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Allan Mumba • All rights reserved.
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/254769113515?text=Hi%20Allan" target="_blank" rel="noopener" title="WhatsApp"
+     style="position:fixed; right:18px; bottom:18px; width:56px; height:56px; border-radius:50%; background:#25D366; color:#fff; display:grid; place-items:center; box-shadow:var(--shadow)">
+    <i class="fa-brands fa-whatsapp" style="font-size:24px"></i>
+  </a>
+
+  <!-- Mobile Menu Drawer -->
+  <div id="drawer" class="hide" style="position:fixed; inset:0; background:rgba(0,0,0,.35); z-index:60">
+    <div style="position:absolute; right:0; top:0; width:min(85%,360px); height:100%; background:#fff; padding:18px; box-shadow: var(--shadow)">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px">
+        <strong>Menu</strong>
+        <button id="closeDrawer" class="btn btn-outline"><i class="fa fa-xmark"></i></button>
+      </div>
+      <div style="display:grid; gap:8px">
+        <a href="#about" class="drawer-link">About</a>
+        <a href="#skills" class="drawer-link">Skills</a>
+        <a href="#teaching" class="drawer-link">Teaching</a>
+        <a href="#portfolio" class="drawer-link">Portfolio</a>
+        <a href="#contact" class="drawer-link">Contact</a>
+        <a href="assets/Allan_Mumba_CV.pdf" download class="drawer-link">Download CV</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const drawer = document.getElementById('drawer');
+    const closeDrawer = document.getElementById('closeDrawer');
+    menuBtn.addEventListener('click', ()=> drawer.classList.remove('hide'));
+    closeDrawer.addEventListener('click', ()=> drawer.classList.add('hide'));
+    document.querySelectorAll('.drawer-link').forEach(a=> a.addEventListener('click', ()=> drawer.classList.add('hide')));
+
+    // Smooth anchor scroll (improves on iOS Safari)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if(targetId.length > 1){
+          e.preventDefault();
+          document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Contact form -> open mailto with prefilled body
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const subject = encodeURIComponent(`New inquiry from ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+      window.location.href = `mailto:mullan767@gmail.com?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
